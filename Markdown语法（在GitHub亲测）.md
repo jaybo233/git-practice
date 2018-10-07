@@ -9,8 +9,9 @@ Index
 
 <!-- /TOC -->
 
+注1：该目录有点问题，不知道为什么。但是人家这个是可以的 [B-专题-CNN.md](https://github.com/imhuay/Algorithm_Interview_Notes-Chinese/edit/master/A-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/B-%E4%B8%93%E9%A2%98-CNN.md)
 
-
+注2：文章开头`[TOC]`自动生成目录，目前 CSDN、有道云笔记、Typora 等支持，掘金、GitHub 不支持。
 
 ## 编程学习
 
