@@ -25,3 +25,53 @@ git remote add gitee git@gitee.com:liaoxuefeng/learngit.git
 ```
 
 再关联码云的远程库，名称为 gitee。可以用`git remote -v`查看远程库信息。
+
+删除已关联的名为`origin`的远程库：`git remote rm origin`
+
+3、Git 配置多个 SSH-key？为什么？
+
+参考：
+
+- [Git配置多个SSH-Key](https://gitee.com/help/articles/4229#github)
+- [一台电脑配置多个ssh key（不同的多个邮箱ssh key，多git账号，智能选择对应的ssh key）](https://blog.csdn.net/yimingsilence/article/details/79980135)
+- [管理git生成的多个ssh key](https://www.jianshu.com/p/f7f4142a1556)
+
+背景：当有多个 git 账号时，比如
+
+a. 一个 gitee，用于公司内部的工作开发；
+b. 一个 github，用于自己进行一些开发活动；
+
+1. 生成一个公司用的 SSH-Key
+
+   ``` xml
+   ssh-keygen -t rsa -C 'xxxxx@company.com' -f ~/.ssh/gitee_id_rsa
+   ```
+
+2. 生成一个 github 用的SSH-Key
+
+   ``` xml
+   ssh-keygen -t rsa -C 'xxxxx@qq.com' -f ~/.ssh/github_id_rsa
+   ```
+
+3. 在 ~/.ssh 目录下新建一个config文件，添加如下内容（其中Host和HostName填写git服务器的域名，IdentityFile指定私钥的路径）
+
+   ``` xml
+   # gitee
+   Host gitee.com
+   HostName gitee.com
+   PreferredAuthentications publickey
+   IdentityFile ~/.ssh/gitee_id_rsa
+   
+   #github
+   Host github.com
+   HostName github.com
+   PreferredAuthentications publickey
+   IdentityFile ~/.ssh/github_id_rsa
+   ```
+
+4. 用ssh命令分别测试
+
+   ``` xml
+   ssh -T git@gitee.com
+   ssh -T git@github.com
+   ```
