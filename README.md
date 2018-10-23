@@ -16,3 +16,12 @@
 
 
 
+2、保持码云 Gitee 和 GitHub 同步更新？
+
+参考：[使用码云](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00150154460073692d151e784de4d718c67ce836f72c7c4000)
+
+``` xml
+git remote add gitee git@gitee.com:liaoxuefeng/learngit.git
+```
+
+再关联码云的远程库，名称为 gitee。可以用`git remote -v`查看远程库信息。
