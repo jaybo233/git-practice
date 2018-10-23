@@ -28,6 +28,8 @@ git remote add gitee git@gitee.com:liaoxuefeng/learngit.git
 
 删除已关联的名为`origin`的远程库：`git remote rm origin`
 
+说明：本人用的同一个 SSH-key；在提交代码`git push`时候只提交到了 GitHub 远程仓库，若要提交到 Gitee，则再需`git push gitee master`。不知是不是得需要配置多个 SSH-key 就能完全同步更新，不会多这个操作。
+
 3、Git 配置多个 SSH-key？为什么？
 
 参考：
@@ -75,3 +77,6 @@ b. 一个 github，用于自己进行一些开发活动；
    ssh -T git@gitee.com
    ssh -T git@github.com
    ```
+
+说明：本人用的都是同一个 SSH-key
+
