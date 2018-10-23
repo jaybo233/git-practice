@@ -28,9 +28,25 @@ git remote add gitee git@gitee.com:liaoxuefeng/learngit.git
 
 删除已关联的名为`origin`的远程库：`git remote rm origin`
 
-说明：本人用的同一个 SSH-key 的情况下，在提交代码`git push`时候貌似只提交到了 GitHub 远程仓库（但好像会同步到 Gitee，只是非常慢，我没去耐心等待，待测）；若要提交到 Gitee，则再需`git push gitee master`。
+说明：本人用的同一个 SSH-key 的情况下，在提交代码`git push`时候貌似只提交到了 GitHub 远程仓库；若要提交到 Gitee，则再需`git push gitee master`。
 
-后面我按下面方式配置了多个 SSH-key，`git push`提交后，最后 Gitee 和 GitHub 是能同步更新的，但 Gitee 同步速度非常慢。
+后面我按下面方式配置了多个 SSH-key，`git push`提交后，代码会提交到 GitHub，未同步更新到 Gitee。
+
+想要一次 push 到多个远程仓库，参考：[一个项目push到多个远程Git仓库](https://segmentfault.com/a/1190000011294144)，该文的第二个方法大概是这样：
+
+``` xml
+git remote set-url --add github https://git.oschina.net/zxbetter/test.git
+```
+
+`git remote -v`查看远程仓库情况。可以看到 `github` 远程仓库有两个 `push` 地址。这种方法的好处是每次只需要 push 一次就行了。
+
+``` xml
+github  https://github.com/zxbetter/test.git (fetch)
+github  https://github.com/zxbetter/test.git (push)
+github  https://git.oschina.net/zxbetter/test.git (push)
+```
+
+但是该方法有缺点：在`push` 的时候比较方便，但是在 `pull` 的时候只能从第一个 `url` 地址拉取代码。
 
 
 
